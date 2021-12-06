@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/module.css">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: CreteRound;
+            src: local("CreteRound Regular"),
+                url(fonts/CreteRound-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Roboto;
+            src: local("Roboto Regular"),
+                url(fonts/Roboto-Regular.ttf);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="menu-container">
+            <input id="toggle-mobile-menu" type="checkbox" />
+            <label class="hamburger" for="toggle-mobile-menu">
+                <div class="top"></div>
+                <div class="meat"></div>
+                <div class="bottom"></div>
+            </label>
+    
+            <nav class="menu">
+                <a href="index.html">Home</a>
+                <a href="hochschule.html">Über die Hochschule</a>
+                <a href="kontakt.html">Kontakt</a>
+                <a href="dokumentation.html">Dokumentation</a>
+                <a href="timeline.html">Timeline</a>
+            </nav>
+        </section>
+
+        <div class="intro">
+            <h3>Jahresaustellung der Studiengänge MI, AI, IFK, IM</h3>
+            <h1>Rundgang</h1>
+
+            <div class="welcome">
+                <p>
+                    Gemeinsam mit Ihnen möchten wir unsere Jahresausstellung Rundgang 2021 feiern. Unsere Studierenden
+                    des
+                    Fachbereichs Information und Kommunikation präsentieren Ihnen auch in diesem Jahr wieder
+                    herausragende
+                    Semester arbeiten und Projekte des vergangenen Studienjahres.
+                </p>
+                <p>
+                    Wir öffnen unsere Türen und geben Ihnen einen umfangreichen Einblick in Audio, Animation, Design,
+                    App-Entwicklung, Sprache, Games, Textredaktion, Usability, Virtual Reality, Filme und vielem mehr.
+                    Wir
+                    freuen uns über Ihren Besuch auf dem Rundgang 2021 und wünschen Ihnen auch im ›Stöbern‹ auf der
+                    Website
+                    der Ausstellung viel Freude und Vergnügen!
+                </p>
+                <p>
+                    Prof. Klaus Hoefs | Dekan, Fachbereich 3
+
+
+                </p>
+            </div>
+        </div>
+
+        <div class="exponate">
+            <h1>Austellungsexponate</h1>
+            <h2>Leuchtender Würfel</h2>
+                <img src="images/exponat-1.png"  alt="Stock fotage of a cube" width=200px>
+                <p>
+                    Die Idee der Hausarbeit war es einen Unendlichkeits-Würfel zu bauen, welcher RGB LEDs besitzt,
+                    welche
+                    dann mit einem in der...
+                </p>
+                <button class="explore" onclick="">Entdecken</button>
+        </div>
+
+        <form class="search">
+            <input type="text" placeholder="Suchen.." name="search">
+            <button type="submit"><img src="images/search-icon-white.png" alt="search icon" width=32px height="100%"></button>
+        </form>
+
+        <div class="more-arrow">
+            <p>Mehr erfahren</p>
+            <span class="ball"></span>
+            <span class="down-arrow">&#10148;</span>
+        </div>
+    </main>
+</body>
+
+</html>

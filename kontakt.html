@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/styles.css"> 
+        <title>Document</title>
+        <style>
+            @font-face {
+                font-family: CreteRound;
+                src: local("CreteRound Regular"),
+                    url(fonts/CreteRound-Regular.ttf);
+            }
+
+            @font-face {
+                font-family: Roboto;
+                src: local("Roboto Regular"),
+                    url(fonts/Roboto-Regular.ttf);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div  id="special-transparent-placeholder"class="menu-placeholder"></div>
+        <section class="menu-container">
+            <input id="toggle-mobile-menu" type="checkbox" />
+            <label class="hamburger" for="toggle-mobile-menu">
+                <div class="top"></div>
+                <div class="meat"></div>
+                <div class="bottom"></div>
+            </label>
+
+            <nav class="menu">
+                <a href="index.html">Home</a>
+                <a href="hochschule.html">Über die Hochschule</a>
+                <a  class="is-active" href="kontakt.html">Kontakt</a>
+                <a href="dokumentation.html">Dokumentation</a>
+                <a href="timeline.html">Timeline</a>
+            </nav>
+        </section>
+
+
+        <main>
+            <section>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2301.3320497685154!2d9.44720161640063!3d54.77412987450732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b34283719502c3%3A0x5d5b9859da2e6004!2sHochschule%20Flensburg!5e0!3m2!1sde!2sde!4v1624545644483!5m2!1sde!2sde/"
+                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </section>
+
+        <section class="l-containerLight">
+            <form action="http://www.inf.fh-flensburg.de/echo/" method="post" accept-charset="utf-8"
+                enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Kontakt aufnehmen</legend>
+                    <p>Der Rundgang wird jedes Jahr von der Hochschule Flensburg veranstaltet. Bei Interesse können Sie ihre Daten hinterlegen und sich direkt für den Rundgang anmelden</p>
+                    <label>Vorname<input name="vorname" type="text"></label>
+                    <label>Name<input name="name" type="text"></label>
+                    <label>Email-Adresse<input name="Email-Adresse" type="text"></label>
+                    <input type="submit" value="Anmelden">
+                </fieldset>
+            </form>
+        </section>
+        </main>
+        <footer>
+            <section class="footer-general">
+                <div>
+                    <h3>Kontakt</h3>
+                    <ul>
+                        <li>Hochschule Flensburg</li>
+                        <li>Kanzleistraße 91-93</li>
+                        <li>24943 Flensburg</li>
+                    </ul>
+                    <ul>
+                        <li>Telefon: +49 (0)461 805 - 01</li>
+                        <li>Telefax: +49 (0)461 805 - 1300</li>
+                        <li>Mail: infopoint@hs-flensburg.de</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Exponate</h3>
+                    <ul>
+                        <li>Leuchtender Würfel</li>
+                        <li>LED Türme</li>
+                        <li>Plakatgestaltung</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="footer-legal">
+                <p>
+                    Hochschule Flensburg
+                </p>
+                <div class="impressum-box">
+                    <ul>
+                        <li><a>Impressum</a></li>
+                        <li><a>Datenschutz</a></li>
+                    </ul>
+                </div>
+                <div class="image-placeholder">
+                    <div></div>
+                    <img src="images/Bottom.png"  alt="Farbklecks" height="100%"/>
+                </div>
+            </section>
+        </footer>
+    </body>
+</html>
