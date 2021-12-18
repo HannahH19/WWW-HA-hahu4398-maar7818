@@ -112,3 +112,25 @@ export async function edit(ctx) {
   const data = await model.getById(ctx.db, ctx.params.ID);
   await ctx.render("edit", { exponate: data });
 }
+
+
+/**
+ * shows Hochschul Page
+ * @param {Context} ctx
+ *
+ */
+ export async function showHochschulPage(ctx) {
+  ctx.set("EDIT", "text/plain;charset=utf-8");
+  await ctx.render("hochschule");
+}
+
+/**
+ * shows Kontakt Page
+ * @param {Context} ctx
+ *
+ */
+ export async function showKontaktPage(ctx) {
+  ctx.set("EDIT", "text/plain;charset=utf-8");
+  await ctx.render("kontakt");
+}
+

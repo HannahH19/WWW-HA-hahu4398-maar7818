@@ -13,7 +13,6 @@
             src: local("CreteRound Regular"),
                 url(fonts/CreteRound-Regular.ttf);
         }
-
         @font-face {
             font-family: Roboto;
             src: local("Roboto Regular"),
@@ -23,122 +22,87 @@
 </head>
 
 <body>
-    
-    <section class="menu-container">
-        <input id="toggle-mobile-menu" type="checkbox" />
-        <label class="hamburger" for="toggle-mobile-menu">
-            <div class="top"></div>
-            <div class="meat"></div>
-            <div class="bottom"></div>
-        </label>
-
-        <nav class="menu">
-            <a href="index.html">Home</a>
-            <a class="is-active" href="hochschule.html">Über die Hochschule</a>
-            <a href="kontakt.html">Kontakt</a>
-            <a href="dokumentation.html">Dokumentation</a>
-            <a href="timeline.html">Timeline</a>
-        </nav>
-    </section>
-
-
     <main>
-        <img class="header-bild" src="images/UniversityExample.jpg"  alt="An Universtity building" height="100%" width="100%">
+        {% extends 'layout.html' %}
+        {% block content %}
+        <img class="header-bild" src="images/UniversityExample.jpg" alt="An Universtity building" height="100%"
+            width="100%">
         <section class="l-container">
             <div class="text-section">
                 <h1>Hochschule</h1>
                 <!-- Text von: https://hs-flensburg.de/hochschule-->
                 <p>
                     Wer gut verwurzelt ist, kann hoch hinaus wachsen. Ob in Studium und Lehre, Forschung und
-                    Technologietransfer, nationalen und internationalen Beziehungen – die Hochschule Flensburg ist in all
+                    Technologietransfer, nationalen und internationalen Beziehungen – die Hochschule Flensburg ist in
+                    all
                     diesen Bereichen ganz nah an der Praxis und an den Menschen und weit voraus in Sachen Innovation und
                     Wissen.
                 </p>
                 <article>
                     <h2>Ganz nah.</h2>
                     <p>
-                        Die Wurzeln der Hochschule Flensburg reichen bis ins Jahr 1852 zurück, als mit der Gründung der Königlich
-                        Dänischen Navigationsschule der Grundstein für vieles gelegt wurde, was noch heute zur Identität der
-                        Hochschule gehört. Ganz nah an der Region und ihren Menschen waren wir damals und sind wir heute.
+                        Die Wurzeln der Hochschule Flensburg reichen bis ins Jahr 1852 zurück, als mit der Gründung der
+                        Königlich
+                        Dänischen Navigationsschule der Grundstein für vieles gelegt wurde, was noch heute zur Identität
+                        der
+                        Hochschule gehört. Ganz nah an der Region und ihren Menschen waren wir damals und sind wir
+                        heute.
                     </p>
                     <p>
-                        Flensburg, seine Förde und die regionale Wirtschaft haben die Hochschule stark geprägt: Maritime Themen,
-                        Wirtschaft und Energie finden sich in unserem Studienangebot und unseren Forschungsfeldern genauso
+                        Flensburg, seine Förde und die regionale Wirtschaft haben die Hochschule stark geprägt: Maritime
+                        Themen,
+                        Wirtschaft und Energie finden sich in unserem Studienangebot und unseren Forschungsfeldern
+                        genauso
                         wieder wie Biotechnologie, Informatik und Maschinenbau.
                     </p>
                     <p>
-                        Unsere Lehrenden sind für unsere rund 3500 Studierenden auf dem grünen Flensburger Campus der kurzen Wege
-                        leicht erreichbar – auch vor und nach den Lehrveranstaltungen. Ganz nah sind unsere Lehrenden auch an
-                        der Praxis und den Bedürfnissen der Wirtschaft. Die Praxiserfahrungen, die alle unsere Professorinnen
-                        und Professoren mitbringen, fließen direkt in die praxisnahe Ausbildung unserer Studierenden ein, für
+                        Unsere Lehrenden sind für unsere rund 3500 Studierenden auf dem grünen Flensburger Campus der
+                        kurzen Wege
+                        leicht erreichbar – auch vor und nach den Lehrveranstaltungen. Ganz nah sind unsere Lehrenden
+                        auch an
+                        der Praxis und den Bedürfnissen der Wirtschaft. Die Praxiserfahrungen, die alle unsere
+                        Professorinnen
+                        und Professoren mitbringen, fließen direkt in die praxisnahe Ausbildung unserer Studierenden
+                        ein, für
                         die wir als Hochschule für angewandte Wissenschaften bekannt sind. Kooperationen in Studien- und
-                        Forschungsprojekten bringen unser Wissen in die Wirtschaft und vermitteln unseren Studierenden wertvolle
+                        Forschungsprojekten bringen unser Wissen in die Wirtschaft und vermitteln unseren Studierenden
+                        wertvolle
                         Erfahrungen und Kontakte.
 
-                        Ganz nah sind wir auch an unseren Partnern in der Region, in Deutschland, in Europa und der Welt. Diese
-                        Partnerschaften leben vom persönlichen Kontakt und vom wechselseitigen Lernen, das uns als Hochschule
+                        Ganz nah sind wir auch an unseren Partnern in der Region, in Deutschland, in Europa und der
+                        Welt. Diese
+                        Partnerschaften leben vom persönlichen Kontakt und vom wechselseitigen Lernen, das uns als
+                        Hochschule
                         stetig weiter voranbringt.
                     </p>
                 </article>
-                
+
                 <article>
                     <h2>Weit voraus.</h2>
                     <p>
-                        Die stabile Verankerung in der Region, in internationalen und nationalen Netzwerken macht es möglich,
-                        dass die Hochschule Flensburg in zahlreichen Forschungsprojekten neue Wege ebnet und Standards setzt.
-                        Interdisziplinäre Zusammenarbeit ist bei uns Normalität – in Projekten, Instituten und Zentren wird über
+                        Die stabile Verankerung in der Region, in internationalen und nationalen Netzwerken macht es
+                        möglich,
+                        dass die Hochschule Flensburg in zahlreichen Forschungsprojekten neue Wege ebnet und Standards
+                        setzt.
+                        Interdisziplinäre Zusammenarbeit ist bei uns Normalität – in Projekten, Instituten und Zentren
+                        wird über
                         fachliche und geografische Grenzen hinweg gedacht und gearbeitet.
                     </p>
                     <p>
-                        Weit voraus sind aber nicht nur die Ergebnisse der Forschung an der Hochschule Flensburg, sondern auch
+                        Weit voraus sind aber nicht nur die Ergebnisse der Forschung an der Hochschule Flensburg,
+                        sondern auch
                         die hochmodern ausgestatteten Labore, in denen diese Forschung betrieben wird. So arbeitet die
-                        Hochschule Flensburg heute schon an den Themen von morgen – in Studiengängen, Forschungsprojekten und
-                        Kooperationen. Wir qualifizieren nicht nur unsere Studierenden für eine erfolgreiche Zukunft, sondern
+                        Hochschule Flensburg heute schon an den Themen von morgen – in Studiengängen,
+                        Forschungsprojekten und
+                        Kooperationen. Wir qualifizieren nicht nur unsere Studierenden für eine erfolgreiche Zukunft,
+                        sondern
                         wirken auch aktiv an dieser Zukunft mit – in unserer Region und weit darüber hinaus.
                     </p>
                 </article>
             </div>
         </section>
+        {% endblock %}
     </main>
 
-    <footer>
-        <section class="footer-general">
-            <div>
-                <h3>Kontakt</h3>
-                <ul>
-                    <li>Hochschule Flensburg</li>
-                    <li>Kanzleistraße 91-93</li>
-                    <li>24943 Flensburg</li>
-                </ul>
-                <ul>
-                    <li>Telefon: +49 (0)461 805 - 01</li>
-                    <li>Telefax: +49 (0)461 805 - 1300</li>
-                    <li>Mail: infopoint@hs-flensburg.de</li>
-                </ul>
-            </div>
-            <div>
-                <h3>Exponate</h3>
-                <ul>
-                    <li>Leuchtender Würfel</li>
-                    <li>LED Türme</li>
-                    <li>Plakatgestaltung</li>
-                </ul>
-            </div>
-        </section>
-        <section class="footer-legal">
-            <p>
-                Hochschule Flensburg
-            </p>
-            <div class="impressum-box">
-                <ul>
-                    <li><a>Impressum</a></li>
-                    <li><a>Datenschutz</a></li>
-                </ul>
-            </div>
-            <div class="image-placeholder">
-                <div></div>
-                <img src="images/Bottom.png"  alt="Farbklecks" height="100%"/>
-            </div>
-        </section>
-    </footer>
+
 </body>

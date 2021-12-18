@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/web/style.css" type="text/css">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: CreteRound;
+            src: local("CreteRound Regular"),
+                url(/fonts/CreteRound-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Roboto;
+            src: local("Roboto Regular"),
+                url(/fonts/Roboto-Regular.ttf);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        {% extends 'layout.html' %}
+        {% block content %}
+        <section class="l-container">
+            <h1>Login</h1>
+            <p>Loggen Sie sich ein, um die Exponate zu bearbeiten.</p>
+
+
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Login</legend>
+                    <div id="form">
+                        <label>Benutzername: </label>
+                        <input type="text" id="form_username" size="80" name="username"
+                            value="{{ form['username'] }}"><br />
+                        <label>Passwort: </label>
+                        <input type="text" id="form_password" size="80" name="password"
+                            value="{{ form['password'] }}"><br />
+                    </div>
+                    <button type="submit" value="submit">Login</button>
+                </fieldset>
+            </form>
+        </section>
+        {% endblock %}
+        <main>
+
+</body>
+
+</html>

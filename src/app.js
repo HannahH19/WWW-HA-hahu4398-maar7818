@@ -5,14 +5,14 @@ import serve from "koa-static";
 import mount from "koa-mount";
 import exponateRouter from "./router.js";
 
+
 /**
  * @param {Database} config
  */
 export default async function webApp(config) {
   const app = new Koa();
-
- 
   app.use(exponateRouter.routes());
+
   app.use(mount("/web",serve("./web")));
   app.use(mount("/fonts",serve("./fonts")));
   app.use(mount("/images",serve("./images")));
