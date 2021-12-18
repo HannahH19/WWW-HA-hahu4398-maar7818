@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/web/style.css" type="text/css">
+    <title>DetailView Exponat</title>
+    <style>
+        @font-face {
+            font-family: CreteRound;
+            src: local("CreteRound Regular"),
+                url(/fonts/CreteRound-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Roboto;
+            src: local("Roboto Regular"),
+                url(/fonts/Roboto-Regular.ttf);
+        }
+    </style>
+</head>
+
+<body>
+
+    {% extends 'layout.html' %}
+    {% block content %}
+    <main>
+        {% if canEdit %}
+        <nav>
+            <li><a href="/exponat/{{exponat.id}}/edit" mehtod="get">Bearbeiten</a></li>
+            <li><a href="/exponat/{{exponate.id}}/delete" method="get">Löschen</a></li>
+        </nav>
+        {% endif %}
+
+        <section class="exponat-details-container">
+            <article class="exponat-details"></article>
+            <h1> {{exponat.title}} </h1>
+            <p>{{exponat.title}}</p>
+
+            <ul class="exponat-information">
+                <li><b>Studiengang: <b>{{exponat.course}}</b></li>
+                <li><b>Studienfachsemester: <b>{{exponat.semester}}</b></li>
+                <li><b>Modul: <b>{{exponat.modul}}</b></li>
+                <br>
+                <li>
+                    <b>Studierende: <b>{{exponat.students}}</b>
+                </li>
+                <br>
+                <li>
+                    <b>Lehrverantwortliche: <b>{{exponat.teacher}}</b> </b>
+                </li>
+            </ul>
+            </article>
+        </section>
+    </main>
+    {% endblock %}
+
+</body>

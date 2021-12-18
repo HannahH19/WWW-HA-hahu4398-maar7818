@@ -1,4 +1,3 @@
-import { d } from "nunjucks/src/filters";
 import { Database } from "sqlite";
 
 /**
@@ -7,7 +6,8 @@ import { Database } from "sqlite";
  * @returns {Array}
  */
 export async function all(db) {
-  const array = await db.all("SELECT * FROM exponates");
+  const sql = `SELECT * FROM expo`;
+  const array = await db.all(sql);
   return array;
 }
 
@@ -18,7 +18,7 @@ export async function all(db) {
  * @returns {Exponate}
  */
 export async function getById(db, id) {
-  const sql = `SELECT * FROM exponates WHERE id = $id`;
+  const sql = `SELECT * FROM expo WHERE id = $id`;
   const exponate = await db.get(sql, { $id: id });
   return exponate;
 }
@@ -30,7 +30,7 @@ export async function getById(db, id) {
  * @returns {Int}
  */
 export async function add(db, exponate) {
-  const sql = `INSERT INTO exponates (id, title, description, teacher, students, course, semester) 
+  const sql = `INSERT INTO expo (id, title, description, teacher, students, course, semester) 
     VALUES ($id, $title, $description, $teacher, $students, $course, $semester)`;
   const result = await db.run(sql, {
     $id: exponate.id,
@@ -51,7 +51,7 @@ export async function add(db, exponate) {
  * @returns {result}
  */
 export async function deleteById(db, id) {
-  const sql = `DELETE FROM exponates WHERE id =$id`;
+  const sql = `DELETE FROM expo WHERE id =$id`;
   const result = await db.run(sql, { $id: id });
   return result.changes;
 }
@@ -63,8 +63,8 @@ export async function deleteById(db, id) {
  * @param {exponate} exponate
  * @returns {result}
  */
-export function update(db, id, exponate) {
-    const sql =`UPDATE exponates SET title=$title, description=$description, teacher=$teacher, students=$students, course=$course, semester=$semester WHERE id=$id`;
+export  async function update(db, id, exponate) {
+    const sql =`UPDATE expo SET title=$title, description=$description, teacher=$teacher, students=$students, course=$course, semester=$semester WHERE id=$id`;
     const result = await db.run(sql, {
         $id: exponate.id,
         $title: exponate.title,

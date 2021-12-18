@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/web/style.css" type="text/css">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: CreteRound;
+            src: local("CreteRound Regular"),
+                url(fonts/CreteRound-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Roboto;
+            src: local("Roboto Regular"),
+                url(fonts/Roboto-Regular.ttf);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        {% extends 'layout.html' %}
+        {% block content %}
+        <section class="l-container">
+            <div class="header-section">
+                <h2>Jahresausstellung der Studiengänge MI, AI, IFK, IM</h2>
+                <h1>Rundgang 2021</h1>
+                <h2>Hochschule Flensburg | Fachbereich 3</h2>
+                <p>
+                    Gemeinsam mit Ihnen möchten wir unsere
+                    Jahresausstellung Rundgang 2021 feiern.
+                    Unsere Studierenden des Fachbereichs
+                    Information und Kommunikation
+                    präsentieren Ihnen auch in diesem Jahr
+                    wieder herausragende Semester arbeiten
+                    und Projekte des vergangenen
+                    Studienjahres.
+                </p>
+                <p>
+                    Wir öffnen unsere Türen und geben Ihnen
+                    einen umfangreichen Einblick in Audio,
+                    Animation, Design, App-Entwicklung,
+                    Sprache, Games, Textredaktion, Usability,
+                    Virtual Reality, Filme und vielem mehr. Wir
+                    freuen uns über Ihren Besuch auf dem
+                    Rundgang 2021 und wünschen Ihnen beim Stöbern viel
+                    Vergnügen!
+                </p>
+                <p>
+                    Prof. Klaus Hoefs | Dekan, Fachbereich 3
+                </p>
+            </div>
+        </section>
+
+
+        <h2 class="exponate-heading"> Ausstellungs Exponate</h2>
+        <section class="exponates">
+            {% for exponat in exponates %}
+            <article>
+                <div class="l-centered">
+                    <h3>{{exponat.title}}</h3>
+                    <p>{{exponat.title}}</p>
+                    <a href="/exponat/{{exponat.ID}}">
+                        <button>Entdecken</button>
+                    </a>
+                </div>
+            </article>
+            {% endfor %}
+        </section>
+
+        {% endblock %}
+
+        <h2 class="exponate-heading">Ausstellungs Exponate</h2>
+        <section class="exponates">
+            <article>
+                <img src="images/exponat_cube_stock.jpg" alt="Stock fotage of a cube" height="100%" width="100%">
+                <div class="l-centered">
+                    <h3>Leuchtender Würfel</h3>
+                    <p>
+                        Die Idee der Hausarbeit war es einen
+                        leuchtenden Würfel zu bauen,
+                        welcher RGB LEDs besitzt...
+                    </p>
+                    <a href="Exponat3.html">
+                        <button onclick="window.location.href = 'Exponat3.html';">Entdecken</button>
+                    </a>
+
+                </div>
+            </article>
+            <article>
+                <img src="images/exponat_led_stock.jpg" alt="Stock fotage of an led" height="100%" width="100%">
+                <div class="l-centered">
+                    <h3>LED Türme</h3>
+                    <p>
+                        Die Türme sowie das Projekt wurden im Fach
+                        Das Projekt wurde komplett im Fach
+                        „Generative Gestaltung“ gebaut...
+                    </p>
+                    <a href="Exponat2.html">
+                        <button onclick="window.location.href = 'Exponat2.html';">Entdecken</button>
+                    </a>
+                </div>
+            </article>
+            <article>
+                <img src="images/exponat_plakat_stock.jpg" alt="Stock fotage of some plakate" height="100%"
+                    width="100%">
+                <div class="l-centered">
+                    <h3>Plakatgestaltung</h3>
+                    <p>
+                        Plakate sind seit mehr als drei
+                        Jahrhunderten Teil des öffentlichen und
+                        eingeschränkt öffentlichen Raums.
+                    </p>
+                    <a href="Exponat1.html">
+                        <button onclick="window.location.href = 'Exponat1.html';">Entdecken</button>
+                    </a>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

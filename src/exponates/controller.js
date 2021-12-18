@@ -31,7 +31,7 @@ export async function index(ctx) {
 export async function show(ctx) {
   ctx.set("SHOW", "text/plain;charset=utf-8");
   ctx.status = 200;
-  const data = await model.getById(ctx.db, dtx.params.ID);
+  const data = await model.getById(ctx.db, ctx.params.ID);
   const accepts = ctx.accepts("html", "application/json");
 
   if (data != null) {
@@ -39,7 +39,7 @@ export async function show(ctx) {
       ctx.body = JSON.stringif(data, undefined, 2);
       return;
     }
-    await ctx.render("detailView", { bookmark: data });
+    await ctx.render("detailView", { exponat: data });
   } else {
     return (ctx.body = ctx.status = 404);
   }
