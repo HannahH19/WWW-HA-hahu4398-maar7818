@@ -18,6 +18,7 @@ export default async function webApp(config) {
   app.use(mount("/images",serve("./images")));
   app.context.params = {};
   app.context.db = config.db;
+  app.context.db1 = config.db1;
   const templateDir = process.cwd() + "/views";
   const render = views(templateDir, {
     extension: "html",

@@ -31,18 +31,21 @@
             <p>Loggen Sie sich ein, um die Exponate zu bearbeiten.</p>
 
 
-            <form action="#" method="post">
+            <form action="" method="post">
                 <fieldset>
                     <legend>Login</legend>
                     <div id="form">
+                        <input type="hidden"
+                        name="_csrf" value="9fKnpusX-CQdybdeA0EdFjNU3WStZ2dpofcw">
                         <label>Benutzername: </label>
                         <input type="text" id="form_username" size="80" name="username"
-                            value="{{ form['username'] }}"><br />
+                            value="{{ form['name'] }}"><br />
                         <label>Passwort: </label>
                         <input type="text" id="form_password" size="80" name="password"
                             value="{{ form['password'] }}"><br />
                     </div>
-                    <button type="submit" value="submit">Login</button>
+                    <button type="submit"  id="form_login" name="form[login]" value="submit">Login</button>
+                
                 </fieldset>
             </form>
         </section>

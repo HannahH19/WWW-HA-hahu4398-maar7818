@@ -1,30 +1,40 @@
 import Router from "@koa/router";
-import bodyParser from 'koa-body';
-import * as loginController from './user/login-form-controller.mjs';
+import koaBody from "koa-body";
+import * as loginController from "./user/login-form-controller.mjs";
 import * as controller from "./exponates/controller.js";
 const router = new Router();
 export default router;
 
 router
-.get("/", (ctx) =>{
+  .get("/", (ctx) => {
     return (ctx.body = controller.index(ctx));
-})
-
-.get("/exponat/:ID", (ctx) => {
-    return (ctx.body = controller.show(ctx));
   })
 
-.get("/login", (ctx) =>{
+  .get("/login", (ctx) => {
     return (ctx.body = loginController.show(ctx));
-})
+  })
+  .post("/login", koaBody(), (ctx) => {
+    router.use(koaBody());
+    ctx.body = ctx.request.body;
+    if(ctx.body.username != null && ctx.body.password != null){
+      return (ctx.body = loginController.login(ctx));
+    }else{
+      ctx.status = 400;
+      //hier noch Nachricht, die Nutzer bittet etwas einzugeben
+      return (ctx.body = loginController.show(ctx));
+    }
+  })
 
-.get("/hochschule", (ctx) =>{
+  //.get('/logout', login.logout)
+
+  .get("/hochschule", (ctx) => {
     return (ctx.body = controller.showHochschulPage(ctx));
-})
+  })
 
-.get("/kontakt", (ctx) =>{
+  .get("/kontakt", (ctx) => {
     return (ctx.body = controller.showKontaktPage(ctx));
-})
+  })
 
-// .post('/login', bodyParser(), login.submitForm);
-// .get('/logout', login.logout);
+  .get("/exponat/:ID", (ctx) => {
+    return (ctx.body = controller.show(ctx));
+  });
