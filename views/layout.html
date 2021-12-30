@@ -38,8 +38,25 @@
             <a href="dokumentation.html">Dokumentation</a>
             <a href="timeline.html">Timeline</a>
             <a href="/login" method="get">Login</a>
+            <a href="/register" method="get">Register</a>
+
+            {% if canEdit %}
+            <a href="/exponat/add" mehtod="get">Bearbeiten</a>
+            {% endif %}
         </nav>
+
+        {% if loggedIn %}
+        <button><a href="/logout"></a>Logout</button>
+        {% endif %}
+
     </section>
+
+
+    <div class="l-container">
+        <p> flash {{ flash }}</p>
+    </div>
+    {% if flash %}
+    {% endif %}
 
     <main>
 

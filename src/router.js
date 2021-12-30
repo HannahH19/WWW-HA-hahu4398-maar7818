@@ -2,6 +2,7 @@ import Router from "@koa/router";
 import koaBody from "koa-body";
 import * as loginController from "./user/login-form-controller.mjs";
 import * as controller from "./exponates/controller.js";
+import * as registerController from "./user/register-form-controller.js";
 const router = new Router();
 export default router;
 
@@ -22,6 +23,21 @@ router
       ctx.status = 400;
       //hier noch Nachricht, die Nutzer bittet etwas einzugeben
       return (ctx.body = loginController.show(ctx));
+    }
+  })
+
+  .get("/register", (ctx) => {
+    return (ctx.body = registerController.addUser(ctx));
+  })
+
+  .post("/register", koaBody(), (ctx) => {
+    router.use(koaBody());
+    ctx.body = ctx.request.body;
+    if(ctx.body.username != null && ctx.body.password != null){
+      return (ctx.body = registerController.addUserRender(ctx));
+    }else{
+      ctx.status = 400;
+      return (ctx.body = registerController.addUser(ctx));
     }
   })
 

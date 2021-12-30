@@ -9,7 +9,6 @@ import { Database } from "sqlite";
  export async function getByUsername(db, name) {
     const sql = `SELECT * FROM user WHERE name = $name`;
     const user = await db.get(sql, { $name: name });
-    console.log(user);
     return user;
   }
 
@@ -23,8 +22,8 @@ import { Database } from "sqlite";
   export async function passwordIsCorrect(db, name, password){
     const sql =`SELECT password FROM user WHERE name = $name`
     const passwordUser  = await db.get(sql, { $name: name});
-    //console.log("Nutyer Password  " + passwordUser)
-    if(password === passwordUser){
+
+    if(password === passwordUser.password){
       return true
     }else{
       return false

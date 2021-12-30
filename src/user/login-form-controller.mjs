@@ -1,4 +1,7 @@
 import * as userModel from "./userModel.mjs";
+import argon2 from "argon2";
+import { callbackify } from "util";
+
 /**
  * shows loginForm
  * @param {Context} ctx
@@ -22,29 +25,30 @@ export async function renderLoginForm(ctx) {
  * @param {Context} ctx
  */
 export async function login(ctx) {
-  var word = ctx.body.password;
-  var name = ctx.body.username;
+  const word = await argon2.hash(ctx.body.password);
   const user = await userModel.getByUsername(ctx.db1, ctx.body.username);
-  console.log("w: " +word)
-  console.log("n: " +name)
-  console.log("u: "+user)
-  if ( (await userModel.passwordIsCorrect(ctx.db1, name, word))) {
-    console.log("richtig");
-    ctx.redirect("/");
-  } else {
+  if (
+    user != null &&
+    (await argon2.verify(word, user.password))
+    //(await userModel.passwordIsCorrect(ctx.db1, name, word))
+  ) {
+    processFormData(ctx, user);
+    //return callback(argon2Match, user.isAdmin);
+    } else {
     //ctx.errors.login =
     //"Diese Kombination aus Benutzername und Passwort ist nicht gültig.";
     await ctx.render("login");
     console.log("falsch");
   }
 }
+
 //await processFormData(ctx);
 /**
  * Processes data from login
  * @param {Context} ctx
  */
 
-export async function processFormData(ctx) {
+export async function processFormData(ctx, user) {
   user.password = undefined;
   ctx.session.user = user;
   ctx.session.flash = `Du bist als ${user.name} eingeloggt.`;
