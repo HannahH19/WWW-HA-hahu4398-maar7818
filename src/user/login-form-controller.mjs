@@ -1,6 +1,5 @@
 import * as userModel from "./userModel.mjs";
 import argon2 from "argon2";
-import { callbackify } from "util";
 
 /**
  * shows loginForm
@@ -25,24 +24,20 @@ export async function renderLoginForm(ctx) {
  * @param {Context} ctx
  */
 export async function login(ctx) {
-  const word = await argon2.hash(ctx.body.password);
-  const user = await userModel.getByUsername(ctx.db1, ctx.body.username);
-  if (
-    user != null &&
-    (await argon2.verify(word, user.password))
-    //(await userModel.passwordIsCorrect(ctx.db1, name, word))
-  ) {
-    processFormData(ctx, user);
-    //return callback(argon2Match, user.isAdmin);
-    } else {
-    //ctx.errors.login =
-    //"Diese Kombination aus Benutzername und Passwort ist nicht gültig.";
-    await ctx.render("login");
-    console.log("falsch");
+  const word = ctx.body.password;
+  var name = ctx.body.name;
+  const user = await userModel.getByUsername(ctx.db1, name);
+  ctx.state.user = user;
+  if (user != null) {
+    if (await argon2.verify(user.password, word)) {
+      await processFormData(ctx, user);
+      //return callback(argon2Match, user.isAdmin);
+    }
+  } else {
+    await ctx.render("login", { form: ctx.body });
   }
 }
 
-//await processFormData(ctx);
 /**
  * Processes data from login
  * @param {Context} ctx
@@ -50,8 +45,14 @@ export async function login(ctx) {
 
 export async function processFormData(ctx, user) {
   user.password = undefined;
-  ctx.session.user = user;
+  //ctx.cookies.set('koa:sess', 'bsjhfa', {flash : true})
   ctx.session.flash = `Du bist als ${user.name} eingeloggt.`;
+  ctx.state.canEdit = true;
+  ctx.state.flash = ctx.session.flash;
+  console.log(ctx.state.flash)
+  //
+  //ctx.cookies.set("koa:sess", "123", { loggedIn: true });
+  //
   ctx.redirect("/");
 }
 
@@ -84,4 +85,14 @@ export async function submitForm(ctx) {
   } else {
     await processFormData(ctx, data);
   }
+}
+
+/**
+ * Logs user out 
+ * @param {Context} ctx
+ */
+export async function logout(ctx) {
+  ctx.session.user = undefined;
+  ctx.session.flash = `Sie sind ausgeloggt.`;
+  ctx.redirect('/');
 }

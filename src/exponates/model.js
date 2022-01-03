@@ -30,8 +30,8 @@ export async function getById(db, id) {
  * @returns {Int}
  */
 export async function add(db, exponate) {
-  const sql = `INSERT INTO expo (id, title, description, teacher, students, course, semester) 
-    VALUES ($id, $title, $description, $teacher, $students, $course, $semester)`;
+  const sql = `INSERT INTO expo (id, title, description, teacher, students, course, semester, image) 
+    VALUES ($id, $title, $description, $teacher, $students, $course, $semester,$image)`;
   const result = await db.run(sql, {
     $id: exponate.id,
     $title: exponate.title,
@@ -40,6 +40,7 @@ export async function add(db, exponate) {
     $students: exponate.students,
     $course: exponate.course,
     $semester: exponate.semester,
+    $image: exponate.image,
   });
   return result.lastID;
 }
@@ -64,15 +65,16 @@ export async function deleteById(db, id) {
  * @returns {result}
  */
 export  async function update(db, id, exponate) {
-    const sql =`UPDATE expo SET title=$title, description=$description, teacher=$teacher, students=$students, course=$course, semester=$semester WHERE id=$id`;
+    const sql =`UPDATE expo SET title=$title, description=$description, teacher=$teacher, students=$students, course=$course, semester=$semester, image=$image WHERE id=$id`;
     const result = await db.run(sql, {
-        $id: exponate.id,
+        $id: id,
         $title: exponate.title,
         $course: exponate.course,
         $description: exponate.description,
         $semester: exponate.semester,
         $teacher: exponate.teacher,
-        $students: exponate.students
+        $students: exponate.students,
+        $image: exponate.image
     });
     return result;
 }

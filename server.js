@@ -12,9 +12,7 @@ const port = 3000;
     filename: "./data/user.sqlite",
     driver: sqlite3.Database,
   });
-  //  const data = await db.all("SELECT * FROM expo")
-  //   const array = JSON.stringify(data, undefined, 2)
-  //   console.log("db"+ '\n'+ array);
+ 
   const config = {
     db,
     db1,
@@ -22,3 +20,4 @@ const port = 3000;
   };
   await webApp(config);
 })();
+

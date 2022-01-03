@@ -168,6 +168,34 @@ fieldset p {
 fieldset input[type=submit] {
     margin-top: 12px;
 }
+fieldset input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-style: solid;
+    border-color: transparent;
+}
+
+fieldset input[type=file]{
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px 20px;
+    display: inline-block;
+    border-style: solid;
+    border-color: transparent;
+    
+}
+
+fieldset textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-style: solid;
+    border-color: transparent;
+}
+
 fieldset input[type=text] {
     width: 100%;
     padding: 12px 20px;

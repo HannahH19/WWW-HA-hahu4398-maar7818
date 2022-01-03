@@ -64,6 +64,7 @@ export async function add(ctx) {
   const semester = ctx.body.semester;
   const modul = ctx.body.modul;
   const id = ctx.body.ID;
+  const image = ctx.body.image;
 
   const exponate = {
     id,
@@ -74,6 +75,7 @@ export async function add(ctx) {
     course,
     semester,
     modul,
+    image,
   };
   const newExponate = await model.add(ctx.db, exponate);
   const data = await model.getById(ctx.db, newExponate);
@@ -83,9 +85,9 @@ export async function add(ctx) {
     ctx.status = 201;
     return (ctx.body = JSON.stringify(data, undefined, 2));
   } else {
-    ctx.render("add");
+    ctx.redirect("/");
   }
-  await ctx.render("add", { exponate: data });
+  //await ctx.render("addExponatForm", { exponates: data });
 }
 
 //delete exponate
@@ -98,7 +100,30 @@ export async function add(ctx) {
 export async function deleteById(ctx) {
   ctx.set("DELETE", "text/plain;charset=utf-8");
   const data = await model.getById(ctx.db, ctx.params.ID);
-  await ctx.render("delete", { exponate: data });
+  ctx.status = 204;
+  const accepts = ctx.accepts("html", "application/json");
+  if (data != null) {
+    if(accepts == "application/json"){
+      return (ctx.body = JSON.stringify(
+        await model.deleteById(ctx.db, ctx.params.ID)
+      ));
+    }else{
+      await model.deleteById(ctx.db, ctx.params.ID);
+      ctx.redirect("/");
+    }
+  } else {
+    return (ctx.body = ctx.status = 404);
+  }
+}
+
+/**
+ * Render delete Form
+ * @param {Context} ctx
+ */
+export async function deleteByIdRender(ctx) {
+  ctx.set("DELETE_RENDER", "text/plain;charset=utf-8");
+  const data = await model.getById(ctx.db, ctx.params.ID);
+  await ctx.render("deleteExponat", {exponat: data});
 }
 
 //edit exponate
@@ -113,13 +138,12 @@ export async function edit(ctx) {
   await ctx.render("edit", { exponate: data });
 }
 
-
 /**
  * shows Hochschul Page
  * @param {Context} ctx
  *
  */
- export async function showHochschulPage(ctx) {
+export async function showHochschulPage(ctx) {
   ctx.set("EDIT", "text/plain;charset=utf-8");
   await ctx.render("hochschule");
 }
@@ -129,8 +153,7 @@ export async function edit(ctx) {
  * @param {Context} ctx
  *
  */
- export async function showKontaktPage(ctx) {
+export async function showKontaktPage(ctx) {
   ctx.set("EDIT", "text/plain;charset=utf-8");
   await ctx.render("kontakt");
 }
-

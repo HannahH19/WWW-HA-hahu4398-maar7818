@@ -26,24 +26,18 @@
     <main>
         {% extends 'layout.html' %}
         {% block content %}
-        
+        <h1>Exponat loeschen</h1>
         <section class="l-containerLight">
-            <form action="#" method="post">
+            <form action="/exponat/{{exponat.id}}/delete" method="post">
                 <fieldset>
-                    <legend>Registrieren</legend>
-                    <div id="form">
-                        <label>Nutzername:</label><input type="text" id="form_name" name="name"
-                            value="{{ form['name'] }}"><br />
-                        <label>Passwort:</label><input type="text" id="form_password" name="password"
-                            value="{{ form['password'] }}"><br />
-                    </div>
-                    <button type="submit" value="submit">Registrieren</button>
+                    <legend>Wollen Sie das Exponat wirklich loeschen?</legend>
+                    <input type="submit" value="Löschen">
+                    <a href="/">Cancel</a>
                 </fieldset>
             </form>
         </section>
         {% endblock %}
         <main>
-
 </body>
 
 </html>

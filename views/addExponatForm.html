@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/web/style.css" type="text/css">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: CreteRound;
+            src: local("CreteRound Regular"),
+                url(/fonts/CreteRound-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Roboto;
+            src: local("Roboto Regular"),
+                url(/fonts/Roboto-Regular.ttf);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        {% extends 'layout.html' %}
+        {% block content %}
+        <section class="l-containerLight">
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Exponate bearbeiten</legend>
+                    <div id="form">
+                        <label>Titel:</label><input type="text" id="form_title" name="title"
+                            value="{{ form['title'] }}"><br />
+                        <label>Beschreibung: </label><textarea type="text" id="form_description" rows="5" cols="90"
+                            wrap="physical" name="description">{{ form['description'] }}</textarea><br />
+                        <label>Lehrer:</label><input type="text" id="form_teacher" name="teacher"
+                            value="{{ form['teacher'] }}"><br />
+                        <label>Studierende:</label><input type="text" id="form_students" name="students"
+                            value="{{ form['students'] }}"><br />
+                        <label>Kurs:</label><input type="text" id="form_course" name="course"
+                            value="{{ form['course'] }}"><br />
+                        <label>Modul:</label><input type="text" id="form_module" name="module"
+                            value="{{ form['module'] }}"><br />
+                        <label>Semester:</label><input type="number" id="form_semester" name="semester"
+                            value="{{ form['semester'] }}"><br />
+                        <label>Bild:</label><input type="file" id="form_image" name="image" value="{{ form['image'] }}"> <br />
+                    </div>
+                    <button type="submit" value="submit">Speichern</button>
+
+                </fieldset>
+            </form>
+        </section>
+        {% endblock %}
+        <main>
+</body>
+
+</html>

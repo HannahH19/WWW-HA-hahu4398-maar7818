@@ -26,6 +26,8 @@
     <main>
         {% extends 'layout.html' %}
         {% block content %}
+      
+    
         <section class="l-container">
             <h1>Login</h1>
             <p>Loggen Sie sich ein, um die Exponate zu bearbeiten.</p>
@@ -38,7 +40,7 @@
                         <input type="hidden"
                         name="_csrf" value="9fKnpusX-CQdybdeA0EdFjNU3WStZ2dpofcw">
                         <label>Benutzername: </label>
-                        <input type="text" id="form_username" size="80" name="username"
+                        <input type="text" id="form_name" size="80" name="name"
                             value="{{ form['name'] }}"><br />
                         <label>Passwort: </label>
                         <input type="text" id="form_password" size="80" name="password"

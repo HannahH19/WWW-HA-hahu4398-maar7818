@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/web/style.css" type="text/css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>DetailView Exponat</title>
     <style>
         @font-face {
@@ -23,18 +23,12 @@
 </head>
 
 <body>
-
     {% extends 'layout.html' %}
     {% block content %}
     <main>
-        {% if canEdit %}
-        <nav>
-            <li><a href="/exponat/{{exponat.id}}/edit" mehtod="get">Bearbeiten</a></li>
-            <li><a href="/exponat/{{exponate.id}}/delete" method="get">Löschen</a></li>
-        </nav>
-        {% endif %}
-
         <section class="exponat-details-container">
+            <img src="/images/{{exponat.image}}" alt="Stock fotage of plakate" alt="Farbklecks" height="100%"
+                width="100%">
             <article class="exponat-details">
                 <h1> {{exponat.title}} </h1>
                 <p>{{exponat.title}}</p>
@@ -52,8 +46,14 @@
                         <b>Lehrverantwortliche: <b>{{exponat.teacher}}</b> </b>
                     </li>
                 </ul>
+                <nav class="container">
+                    <a href="/exponat/{{exponat.ID}}/edit" mehtod="get">Bearbeiten</a>
+                    <a href="/exponat/{{exponat.ID}}/delete" mehtod="get">Löschen</a>
+
+                </nav>
             </article>
         </section>
+
     </main>
     {% endblock %}
 
