@@ -12,10 +12,14 @@ const port = 3000;
     filename: "./data/user.sqlite",
     driver: sqlite3.Database,
   });
- 
+  const db2 = await sqlite.open({
+    filename: "./data/visitor.sqlite",
+    driver: sqlite3.Database,
+  });
   const config = {
     db,
     db1,
+    db2,
     port,
   };
   await webApp(config);

@@ -5,6 +5,7 @@ import * as controller from "./exponates/controller.js";
 import * as formController from "./exponates/form-controller.js";
 import * as registerController from "./user/register-form-controller.js";
 import * as userController from "./user/userController.js";
+import * as viewerController from "./viewers/viewerController.js";
 const router = new Router();
 export default router;
 
@@ -105,11 +106,12 @@ router
   .post("/kontakt", koaBody(), (ctx) => {
     router.use(koaBody());
     ctx.body = ctx.request.body;
-    if(ctx.body.name != "" && ctx.body.password != ""){ // && ctx.body.mail != ""
-      return (ctx.body = userController.add(ctx));
+    if(ctx.body.name != "" && ctx.body.lastname != ""){ // && ctx.body.mail != ""
+      return (ctx.body = viewerController.add(ctx));
     }else{
       ctx.status = 400;
-      return (ctx.body = registerController.addUserRender(ctx));
+      ctx.state.flash = "Bitte geben sie Vor- und Nachnamen ein"
+      return (ctx.body = viewerController.addViewerRender(ctx));
     }
   })
 
