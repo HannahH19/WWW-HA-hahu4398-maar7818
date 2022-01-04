@@ -27,11 +27,11 @@ export async function login(ctx) {
   const word = ctx.body.password;
   var name = ctx.body.name;
   const user = await userModel.getByUsername(ctx.db1, name);
-  ctx.state.user = user;
+
   if (user != null) {
     if (await argon2.verify(user.password, word)) {
       await processFormData(ctx, user);
-      //return callback(argon2Match, user.isAdmin);
+      ctx.redirect("/");
     }
   } else {
     await ctx.render("login", { form: ctx.body });
@@ -45,15 +45,14 @@ export async function login(ctx) {
 
 export async function processFormData(ctx, user) {
   user.password = undefined;
-  //ctx.cookies.set('koa:sess', 'bsjhfa', {flash : true})
   ctx.session.flash = `Du bist als ${user.name} eingeloggt.`;
+  ctx.session.user = user;
+  ctx.state.user = ctx.session.user;
   ctx.state.canEdit = true;
-  ctx.state.flash = ctx.session.flash;
-  console.log(ctx.state.flash)
-  //
-  //ctx.cookies.set("koa:sess", "123", { loggedIn: true });
-  //
-  ctx.redirect("/");
+  //ctx.state.canEdit = true;
+  //ctx.state.flash = true;
+  // ctx.state.flash = ctx.session.flash;
+  //console.log(ctx.state.flash)
 }
 
 export async function renderForm(ctx, preparedData) {
@@ -88,11 +87,11 @@ export async function submitForm(ctx) {
 }
 
 /**
- * Logs user out 
+ * Logs user out
  * @param {Context} ctx
  */
 export async function logout(ctx) {
   ctx.session.user = undefined;
   ctx.session.flash = `Sie sind ausgeloggt.`;
-  ctx.redirect('/');
+  ctx.redirect("/");
 }

@@ -28,11 +28,13 @@
         {% block content %}
         <h1>Exponat loeschen</h1>
         <section class="l-containerLight">
-            <form action="/exponat/{{exponat.id}}/delete" method="post">
+            <form action="/exponat/{{exponat.ID}}/delete" method="post">
                 <fieldset>
                     <legend>Wollen Sie das Exponat wirklich loeschen?</legend>
                     <input type="submit" value="Löschen">
-                    <a href="/">Cancel</a>
+                    <a href="/">
+                        abbrechen
+                    </a>
                 </fieldset>
             </form>
         </section>

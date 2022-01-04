@@ -44,7 +44,7 @@
             <a href="/login" method="get">Login</a>
             {% endif %}
             <a href="/register" method="get">Register</a>
-            <a href="/exponat/add" mehtod="get">Neues Exponat</a>
+            
             
             {% if canEdit %}
             <a href="/exponat/add" mehtod="get">Neues Exponat</a>
@@ -52,17 +52,17 @@
         </nav>
     </section>
 
+
     {% if flash %}
-    <div class="l-container">
-        <p> flash {{ flash }}</p>
+    <div class="message">
+        <p>{{ flash }}</p>
     </div>
     {% endif %}
+  
 
     <main>
-
         {% block content %}
         {% endblock %}
-
     </main>
 
     <footer>

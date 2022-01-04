@@ -55,9 +55,7 @@ export async function edit(ctx) {
     image,
   };
   if (ctx.params.ID) {
-    console.log(exponat)
     model.update(ctx.db, ctx.params.ID, exponat);
-    console.log("Update");
     ctx.redirect("/"); //bookmark/" + ctx.params.ID);
   } else {
     const id = await model.add(ctx.db, data);

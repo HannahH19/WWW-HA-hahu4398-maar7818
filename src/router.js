@@ -11,11 +11,11 @@ const router = new Router();
 export default router;
 
 router
-  .get("/",(ctx) => {
+  .get("/", ctx => {
     return (ctx.body = controller.index(ctx));
   })
 
-  .get("/exponat/add", (ctx) => {
+  .get("/exponat/add",  (ctx) => {
     return (ctx.body = formController.addRender(ctx));
   })
 
@@ -23,6 +23,7 @@ router
     router.use(koaBody());
     ctx.body = ctx.request.body;
     if (ctx.body.title != "" && ctx.body.description != "") {
+      
       return (ctx.body = controller.add(ctx));
     } else {
       //ctx.redirect("/");

@@ -46,11 +46,16 @@
                         <b>Lehrverantwortliche: <b>{{exponat.teacher}}</b> </b>
                     </li>
                 </ul>
+                {% if canEdit %}
                 <nav class="container">
-                    <a href="/exponat/{{exponat.ID}}/edit" mehtod="get">Bearbeiten</a>
-                    <a href="/exponat/{{exponat.ID}}/delete" mehtod="get">Löschen</a>
+                    <a href="/exponat/{{exponat.ID}}/edit" mehtod="get">
+                        <Button>Bearbeiten</Button></a>
+                    <a href="/exponat/{{exponat.ID}}/delete" mehtod="get">
+                        <Button>Loeschen</Button>
+                    </a>
 
                 </nav>
+                {% endif %}
             </article>
         </section>
 
