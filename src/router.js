@@ -5,8 +5,6 @@ import * as controller from "./exponates/controller.js";
 import * as formController from "./exponates/form-controller.js";
 import * as registerController from "./user/register-form-controller.js";
 import * as userController from "./user/userController.js";
-import isAuthenticated from "./app.js";
-//import isLogged from "./app.js";
 const router = new Router();
 export default router;
 
@@ -23,11 +21,10 @@ router
     router.use(koaBody());
     ctx.body = ctx.request.body;
     if (ctx.body.title != "" && ctx.body.description != "") {
-      
       return (ctx.body = controller.add(ctx));
     } else {
-      //ctx.redirect("/");
       ctx.status = 400;
+      ctx.state.flash = "Titel & Beschreibung darf nicht leer bleiben"
       return (ctx.body = formController.addRender(ctx));
     }
   })
@@ -48,8 +45,8 @@ router
       return formController.edit(ctx);
     }else{
       ctx.status = 400;
+      ctx.state.flash = "Titel darf nicht leer bleiben"
       ctx.redirect("/");
-      console.log("Titel darf nicht leer sein")
     }
   })
 
@@ -68,12 +65,11 @@ router
   .post("/login", koaBody(), (ctx) => {
     router.use(koaBody());
     ctx.body = ctx.request.body;
-  
     if(ctx.body.name != "" && ctx.body.password != ""){
       return  loginController.login(ctx);
     }else{
       ctx.status = 400;
-      //hier noch Nachricht, die Nutzer bittet etwas einzugeben
+      ctx.state.flash = "Bitte geben Sie etwas ein"
       return (ctx.body = loginController.show(ctx));
     }
   })
@@ -89,6 +85,7 @@ router
       return (ctx.body = userController.add(ctx));
     }else{
       ctx.status = 400;
+      ctx.state.flash = "Bitte geben Sie etwas ein"
       return (ctx.body = registerController.addUserRender(ctx));
     }
   })
