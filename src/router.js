@@ -105,4 +105,15 @@ router
     return (ctx.body = controller.showKontaktPage(ctx));
   })
 
+  .post("/kontakt", koaBody(), (ctx) => {
+    router.use(koaBody());
+    ctx.body = ctx.request.body;
+    if(ctx.body.name != "" && ctx.body.password != ""){ // && ctx.body.mail != ""
+      return (ctx.body = userController.add(ctx));
+    }else{
+      ctx.status = 400;
+      return (ctx.body = registerController.addUserRender(ctx));
+    }
+  })
+
  

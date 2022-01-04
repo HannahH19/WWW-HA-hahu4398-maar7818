@@ -41,12 +41,14 @@
             <form action="http://www.inf.fh-flensburg.de/echo/" method="post" accept-charset="utf-8"
                 enctype="multipart/form-data">
                 <fieldset>
-                    <legend>Kontakt aufnehmen</legend>
+                <legend>Kontakt aufnehmen</legend>
+                <div id="form">
                     <p>Der Rundgang wird jedes Jahr von der Hochschule Flensburg veranstaltet. Bei Interesse können Sie ihre Daten hinterlegen und sich direkt für den Rundgang anmelden.</p>
-                    <label>Vorname<input name="vorname" type="text"></label>
-                    <label>Name<input name="name" type="text"></label>
-                    <label>Email-Adresse<input name="Email-Adresse" type="text"></label>
+                    <label>Name<input type ="text" id="form_vorname" size="80" name="vorname" value="{{ form['vorname'] }}"> <br /></label>
+                    <label>Lastname<input type="text" id="form_lastname" size="80" name="lastname" value="{{ form['lastname'] }}"> <br /></label>
+                    <label>Email-Adresse<input type="text" id="form_mail" size="80" name="mail" value="{{ form['mail'] }}"> <br /></label>
                     <input type="submit" value="Anmelden">
+                </div>
                 </fieldset>
             </form>
         </section>
