@@ -40,12 +40,12 @@
 
             {% if authenticated %}
             <a href="/logout">Logout</a>
-            {% else %} 
+            {% else %}
             <a href="/login" method="get">Login</a>
             {% endif %}
             <a href="/register" method="get">Register</a>
-            
-            
+
+
             {% if canEdit %}
             <a href="/exponat/add" mehtod="get">Neues Exponat</a>
             {% endif %}
@@ -54,11 +54,12 @@
 
 
     {% if flash %}
-    <div class="message">
+    <div class="flash">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         <p>{{ flash }}</p>
     </div>
     {% endif %}
-  
+
 
     <main>
         {% block content %}
