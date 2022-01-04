@@ -15,9 +15,7 @@ export async function add(ctx) {
     if (accepts == "application/json") {
       ctx.status = 201;
       return ctx.body = JSON.stringify(data, undefined, 2);
-    } else {
-      //ctx.render("/");
-    }
+    } 
     await ctx.render("addUserForm", { user: data });
   }
   
