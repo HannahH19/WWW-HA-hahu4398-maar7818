@@ -7,8 +7,8 @@ export async function add(ctx) {
     const id = ctx.body.id;
   
     const user = { id,name, password};
-    const newUser = await userModel.add(ctx.db1, user);
-    const data = await userModel.getById(ctx.db1, newUser);
+    const newUser = await viewerModel.add(ctx.db1, user);
+    const data = await viewerModel.getById(ctx.db1, newUser);
     const accepts = ctx.accepts("html", "application/json");
   
     ctx.set("ADD_USER", "text/plain;charset=utf-8");
