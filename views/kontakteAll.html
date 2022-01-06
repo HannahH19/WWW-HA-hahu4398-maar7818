@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/web/style.css">
+    <title>Anmeldungen</title>
+    <style>
+        @font-face {
+            font-family: CreteRound;
+            src: local("CreteRound Regular"),
+                url(/fonts/CreteRound-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Roboto;
+            src: local("Roboto Regular"),
+                url(/fonts/Roboto-Regular.ttf);
+        }
+    </style>
+</head>
+
+<body>
+    {% extends 'layout.html' %}
+    {% block content %}
+    <main>
+        <section class="l-containerLight">
+            <h1> Angemeldungen</h1>
+            <p>Hier sehen Sie alle Besucher, die sich bereits ueber das Kontaktformular angemeldete haben.</p>
+
+            {% for visitor in visitors %}
+            <article>
+                <h2>Nummer: {{visitor.id}}</h2>
+                <ul>
+                    <p>Name: {{visitor.vorname}} {{visitor.lastname}}</p>
+                    <p>Email: {{visitor.mail}}</p>
+
+                </ul>
+            </article>
+            {% endfor %}
+
+        </section>
+    </main>
+    {% endblock %}
+
+</body>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/web/style.css" type="text/css">
+    <title>Timeline</title>
+    <style>
+        @font-face {
+            font-family: CreteRound;
+            src: local("CreteRound Regular"),
+                url(/fonts/CreteRound-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Roboto;
+            src: local("Roboto Regular"),
+                url(/fonts/Roboto-Regular.ttf);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        {% extends 'layout.html' %}
+        {% block content %}
+        <img class="header-bild" src="images/time_stock.jpg" alt="Stock fotage of a calendar" height="100%"
+            width="100%">
+        <main class="l-container">
+            <!-- Code nach Beispiel von  Daniel Malls Project Hub.-->
+            <div class="wrapper clearfix">
+                <header class="page-header" role="banner">
+                    <h1>Timeline</h1>
+                    <h2>Hausarbeit WWW-Programmierung</h2>
+
+                    <section class="l-container">
+                        <article class="entry entry-future">
+                            <h3 class="entry-title">Exposée</h3>
+                            <p class="entry-date">November 14, 2021</p>
+                        </article>
+
+                        <article class="entry entry-future">
+                            <h3 class="entry-title"> Grundgerüst mit Hierachie, sowie server.js und app.js</h3>
+                            <p class="entry-date">December 6, 2021</p>
+                        </article>
+
+                        <article class="entry entry-future">
+                            <h3 class="entry-title">Datenbanken für Nutzer, Besucher und Exponate</h3>
+                            <p class="entry-date">December 7, 2021</p>
+                        </article>
+
+                        <article class="entry entry-future">
+                            <h3 class="entry-title">Controller und Model Exponate und User</h3>
+                            <p class="entry-date">December 8, 2021</p>
+                        </article>
+
+                        <article class="entry entry-future">
+                            <h3 class="entry-title">Layout.html und css</h3>
+                            <p class="entry-date">December 15, 2021</p>
+                        </article>
+
+                        <article class="entry entry-future">
+                            <h3 class="entry-title">HTML und CSS für alle Seiten</h3>
+                            <p class="entry-date">December 16, 2021</p>
+                        </article>
+
+                        <article class="entry entry-future">
+                            <h3 class="entry-title">Login und Registrierung </h3>
+                            <p class="entry-date">December 21, 2021</p>
+                        </article>
+
+                        <article class="entry entry-future">
+                            <h3 class="entry-title">Flash Messages </h3>
+                            <p class="entry-date">January 03, 2022</p>
+                        </article>
+
+                        <article class="entry entry-future">
+                            <h3 class="entry-title">Exponate Bearbeiten, Erstellen und Löschen </h3>
+                            <p class="entry-date">January 04, 2022</p>
+                        </article>
+
+                        <article class="entry entry-future">
+                            <h3 class="entry-title">Besucher Model und Controller </h3>
+                            <p class="entry-date">January 05, 2022</p>
+                        </article>
+
+                        <article class="entry entry-future">
+                            <h3 class="entry-title">Finale Korrekturen und Dokumentation </h3>
+                            <p class="entry-date">January 06, 2022</p>
+                        </article>
+                    </section>
+                </header>
+                {% endblock %}
+        </main>
+</body>
+
+</html>

@@ -35,8 +35,8 @@
             <a href="/">Home</a>
             <a href="/hochschule">Über die Hochschule</a>
             <a href="/kontakt">Kontakt</a>
-            <a href="dokumentation.html">Dokumentation</a>
-            <a href="timeline.html">Timeline</a>
+            <a href="/dokumentation">Dokumentation</a>
+            <a href="/timeline">Timeline</a>
 
             {% if authenticated %}
             <a href="/logout">Logout</a>
@@ -48,6 +48,7 @@
 
             {% if canEdit %}
             <a href="/exponat/add" mehtod="get">Neues Exponat</a>
+            <a href="/kontakt/view" mehtod="get">Anmeldungen</a>
             {% endif %}
         </nav>
     </section>

@@ -1,4 +1,3 @@
-
 import { Database } from "sqlite";
 
 /**

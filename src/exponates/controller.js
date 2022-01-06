@@ -45,7 +45,6 @@ export async function show(ctx) {
   }
 }
 
-//add exponate
 /**
  * add an exponate to database
  * @param {Context} ctx
@@ -87,10 +86,8 @@ export async function add(ctx) {
   } else {
     ctx.redirect("/");
   }
-  //await ctx.render("addExponatForm", { exponates: data });
 }
 
-//delete exponate
 /**
  * delete an exponate from database
  * @param {Context} ctx
@@ -103,11 +100,11 @@ export async function deleteById(ctx) {
   ctx.status = 204;
   const accepts = ctx.accepts("html", "application/json");
   if (data != null) {
-    if(accepts == "application/json"){
+    if (accepts == "application/json") {
       return (ctx.body = JSON.stringify(
         await model.deleteById(ctx.db, ctx.params.ID)
       ));
-    }else{
+    } else {
       await model.deleteById(ctx.db, ctx.params.ID);
       ctx.redirect("/");
     }
@@ -123,10 +120,9 @@ export async function deleteById(ctx) {
 export async function deleteByIdRender(ctx) {
   ctx.set("DELETE_RENDER", "text/plain;charset=utf-8");
   const data = await model.getById(ctx.db, ctx.params.ID);
-  await ctx.render("deleteExponat", {exponat: data});
+  await ctx.render("deleteExponat", { exponat: data });
 }
 
-//edit exponate
 /**
  * edit an exponate from database
  * @param {Context} ctx
@@ -144,7 +140,7 @@ export async function edit(ctx) {
  *
  */
 export async function showHochschulPage(ctx) {
-  ctx.set("EDIT", "text/plain;charset=utf-8");
+  ctx.set("HOCHSCHULE", "text/plain;charset=utf-8");
   await ctx.render("hochschule");
 }
 
@@ -154,6 +150,26 @@ export async function showHochschulPage(ctx) {
  *
  */
 export async function showKontaktPage(ctx) {
-  ctx.set("EDIT", "text/plain;charset=utf-8");
-  await ctx.render("kontakt");
+  ctx.set("KONTAKT", "text/plain;charset=utf-8");
+  await ctx.render("kontakt", { form: ctx.body });
+}
+
+/**
+ * shows Dokumentation Page
+ * @param {Context} ctx
+ *
+ */
+export async function showDokumentation(ctx) {
+  ctx.set("KONTAKT", "text/plain;charset=utf-8");
+  await ctx.render("dokumentation");
+}
+
+/**
+ * shows Timeline Page
+ * @param {Context} ctx
+ *
+ */
+export async function showTimeline(ctx) {
+  ctx.set("KONTAKT", "text/plain;charset=utf-8");
+  await ctx.render("timeline");
 }

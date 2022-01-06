@@ -26,7 +26,7 @@
     <main>
         {% extends 'layout.html' %}
         {% block content %}
-  
+
         <section class="l-container">
             <div class="header-section">
                 <h2>Jahresausstellung der Studiengänge MI, AI, IFK, IM</h2>
@@ -64,10 +64,9 @@
             {% for exponat in exponates %}
             <article>
                 <div class="l-centered">
-                    <img src="/images/{{exponat.image}}" alt="Stock fotage of plakate"  height="100%"
-                    width="100%">
+                    <img src="/images/{{exponat.image}}" alt="Stock fotage of plakate" height="100%" width="100%">
                     <h3>{{exponat.title}}</h3>
-                    <p>{{exponat.title}}</p>
+
                     <a href="/exponat/{{exponat.ID}}">
                         <button>Entdecken</button>
                     </a>

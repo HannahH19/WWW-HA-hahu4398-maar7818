@@ -64,17 +64,17 @@ export async function deleteById(db, id) {
  * @param {exponate} exponate
  * @returns {result}
  */
-export  async function update(db, id, exponate) {
-    const sql =`UPDATE expo SET title=$title, description=$description, teacher=$teacher, students=$students, course=$course, semester=$semester, image=$image WHERE id=$id`;
-    const result = await db.run(sql, {
-        $id: id,
-        $title: exponate.title,
-        $course: exponate.course,
-        $description: exponate.description,
-        $semester: exponate.semester,
-        $teacher: exponate.teacher,
-        $students: exponate.students,
-        $image: exponate.image
-    });
-    return result;
+export async function update(db, id, exponate) {
+  const sql = `UPDATE expo SET title=$title, description=$description, teacher=$teacher, students=$students, course=$course, semester=$semester, image=$image WHERE id=$id`;
+  const result = await db.run(sql, {
+    $id: id,
+    $title: exponate.title,
+    $course: exponate.course,
+    $description: exponate.description,
+    $semester: exponate.semester,
+    $teacher: exponate.teacher,
+    $students: exponate.students,
+    $image: exponate.image,
+  });
+  return result;
 }

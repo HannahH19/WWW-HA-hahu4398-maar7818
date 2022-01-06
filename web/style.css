@@ -253,7 +253,7 @@ fieldset textarea {
     border-color: transparent;
 }
 
-fieldset input[type=text] {
+fieldset input[type=text], [type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -262,7 +262,7 @@ fieldset input[type=text] {
     border-color: transparent;
 }
 
-fieldset input[type=text]:hover {
+fieldset input[type=text]:hover, [type=password]:hover {
     border-style: solid;
     border-color: rgba(var(--main-blue-rgb), 0.5);
 }

@@ -26,26 +26,21 @@
     <main>
         {% extends 'layout.html' %}
         {% block content %}
-      
-    
-        <section class="l-container">
-            <h1>Login</h1>
-            <p>Loggen Sie sich ein, um die Exponate zu bearbeiten.</p>
 
-
+        <section class="l-containerLight">
             <form action="#" method="post">
                 <fieldset>
                     <legend>Login</legend>
                     <div id="form">
+                        <p>Bitte melden Sie sich an, um die Exponate zu bearbeiten.</p>
                         <label>Benutzername: </label>
-                        <input type="text" id="form_name" size="80" name="name"
-                            value="{{ form['name'] }}"><br />
+                        <input type="text" id="form_name" size="80" name="name" value="{{ form['name'] }}"><br />
                         <label>Passwort: </label>
-                        <input type="text" id="form_password" size="80" name="password"
+                        <input type="password" id="form_password" size="80" name="password"
                             value="{{ form['password'] }}"><br />
                     </div>
-                    <button type="submit"  id="form_login" name="form[login]" value="submit">Login</button>
-                
+                    <button type="submit" id="form_login" name="form[login]" value="submit">Login</button>
+
                 </fieldset>
             </form>
         </section>

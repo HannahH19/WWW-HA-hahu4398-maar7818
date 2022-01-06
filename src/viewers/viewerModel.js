@@ -1,19 +1,31 @@
 import { Database } from "sqlite";
 
 /**
+ * Returns all exponates as Array
+ * @param {Database} db
+ * @returns {Array}
+ */
+export async function all(db) {
+  const sql = `SELECT * FROM visitor`;
+  const array = await db.all(sql);
+  return array;
+}
+
+/**
  * Adds new user
- * @param {User} visitor
+ * @param {visitor} visitor
  * @param {Database} db
  * @returns {Integer}
  */
 export async function add(db, visitor) {
-  const sql = `INSERT INTO visitors (id, vorname, lastname, mail) VALUES ($id, $vorname, $lastname, $mail)`;
+  const sql = `INSERT INTO visitor (id, vorname, lastname, mail) VALUES ($id, $vorname, $lastname, $mail)`;
   const result = await db.run(sql, {
     $id: visitor.id,
     $vorname: visitor.vorname,
     $lastname: visitor.lastname,
-    $mail: visitor.mail
+    $mail: visitor.mail,
   });
+
   return result.lastID;
 }
 
@@ -24,7 +36,7 @@ export async function add(db, visitor) {
  * @returns {user}
  */
 export async function getById(db, id) {
-  const sql = `SELECT * FROM visitors WHERE id = $id`;
+  const sql = `SELECT * FROM visitor WHERE id = $id`;
   const viwer = await db.get(sql, { $id: id });
   return viwer;
 }
@@ -34,8 +46,8 @@ export async function getById(db, id) {
  * @param {Database} db
  * @param {String} name
  */
- export async function getByUsername(db, name) {
-  const sql = `SELECT * FROM visitors WHERE name = $lastname`;
+export async function getByUsername(db, name) {
+  const sql = `SELECT * FROM visitor WHERE name = $lastname`;
   const user = await db.get(sql, { $lastname: name });
   return user;
 }

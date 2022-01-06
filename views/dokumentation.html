@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/web/style.css" type="text/css">
+    <title>Dokumentation</title>
+    <style>
+        @font-face {
+            font-family: CreteRound;
+            src: local("CreteRound Regular"),
+                url(/fonts/CreteRound-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Roboto;
+            src: local("Roboto Regular"),
+                url(/fonts/Roboto-Regular.ttf);
+        }
+    </style>
+</head>
+
+<body>
+
+    {% extends 'layout.html' %}
+    {% block content %}
+    <main>
+        <img class="header-bild" alt="Picture of a Mug" src="images/doku_stock.jpg" height="100%" width="100%">
+        <section class="l-container">
+            <div class="text-section">
+                <h1>Dokumentation</h1>
+                <h3>Hannah Hüttmann, 670691, hahu4398</h3>
+                <h3>Mark Arnemann,670879 ,maar7818</h3>
+
+                <section>
+                    <h2>Ziel der Anwendung</h2>
+                    <p>Die Anwendung soll den Nutzern die Organisation des jährlichen Rundgangs erleichtern und den
+                        Besuchern einen Eindruck von den Exponaten vermitteln, sowie über die Hochschule informieren.
+                    </p>
+
+                    <p> Durch die online Anmeldung ist der Aufwand für die Organisatoren geringer. Angemeldete Besucher
+                        können leicht eingesehen werden, zudem können Exponate auf der Website vorgestellt und beworben
+                        werden. Das Einfügen, sowie bearbeiten von Exponaten ist simpel und leicht verständlich. </p>
+                    <p>
+                        die Besucher profitieren von einer erleichterten Anmeldung, die nur wenige Informationen
+                        benötigt. Sie können auf der Website einen Eindruck von den auf den Rundgang vorgestellten
+                        Arbeiten und auch von der Hochschule erhalten. Selbst wenn sie nicht am Rundgang teilnehmen,
+                        können sie sich die Exponate ansehen.
+                    </p>
+                    <p>
+                        So wird für beide Seiten ein positiver Mehrwert erreicht.
+                    </p>
+                </section>
+                <section>
+                    <h2>Aufgabenteilung innerhalb der Anwendung</h2>
+                    <p>Innerhalb der Anwendung sind die einzelnen Bereiche klar strukturiert und abgetrennt.
+                        Die drei großen Bereiche Exponate, Besucher und Nutzer werden über einzelne Controller und
+                        Modelle gesteuert. Der Router ist dafür der Ausgangspunkt, über den die einzelnen Routen
+                        aufgerufen werden.
+                    </p>
+                    <p>Alle drei Bereiche haben einen Controller, Form Controller, sowie ein Model. Der Zugriff auf die
+                        Datenbank erfolgt jeweils nur in den Model Klassen des Bereiches. Die restliche Logik findet im
+                        Controller statt, z.B. das Festlegen des Status oder das Rendern der Ziel Seite. </p>
+                    <p>In der server.js werden die Datenbanken aufgerufen und der Port festgelegt. Das Ganze wird in der
+                        app.js für den Kontext der Anwendung gesetzt. Dort wird die neue App erzeugt und alle nötigen
+                        Ressourcen festgelegt. </p>
+                    <p> Die Hierarchie der Anwendung ist klar strukturier. Die Logik findet im src-Ordner statt. Die
+                        Datenbanken befinden sich im data-ordner, HTML Datein im views-Ordner, CSS im web-Ordner. Bilder
+                        und Fonts haben jeweils ihren eignen Ordner.</p>
+                </section>
+                <section>
+                    <h2>Datenbanken</h2>
+                    <p>Die Anwendung beinhaltet drei Datenbanken eine für die Verwaltung der Nutzer, der Besucher und
+                        der Exponate. </p>
+
+                    <h3>user</h3>
+                    <p>
+                        In der Datenbank für Nutzerverwaltung wird jeweils der Name des Nutzers, sowie sein Passwort
+                        gespeichert. Das Passwort wird vor dem Speichern mit argon2 gehasht, damit es nicht
+                        unverschlüsselt gespeichert wird. Weder Nutzername noch Passwort dürfen null sein.
+                        Jeder Nutzer erhält zudem eine ID, die für den Login später von Bedeutung ist. Diese wird
+                        automatisch erzeugt.
+                    </p>
+                    <h3> visitor</h3>
+                    <p>
+                        Die Besucherdatenbank beinhaltet Vornamen, Nachnamen, E-Mail und ID. Die ID gibt Einblick in die
+                        Reihenfolge der Anmeldung, sowie die Anzahl der Anmeldungen.
+                        Die restlichen Informationen dienen zur Information des Organisators, bzw. um den Besucher noch
+                        weitere Informationen über die Email zukommen zu lassen.
+                    </p>
+                    <h3>expo</h3>
+                    <p>
+                        Die Datenbank für die Exponate enthält alle Informationen, die für den Beitrag auf der Website
+                        essenziell sind. Jedes Exponat hat einen Titel und eine Beschreibung, das sind die
+                        Mindestanforderungen. Zusätzlich können Dozenten, Studenten, Studiengang, Semester und ein Bild
+                        für
+                        das Exponat gewählt werden.
+                    </p>
+                </section>
+                <section>
+                    <h2>Progressive Enhancement</h2>
+                    <p>Der Großteil des CSS wurde aus der bereits bestehenden Hausarbeit für Frontend Design entnommen.
+                        Das Design wurde bereits damals an unterschiedliche Bildschirmgrößen angepasst, weitere
+                        Veränderungen wurden hier nicht mehr vorgenommen. </p>
+                </section>
+                <section>
+                    <h2>Inspiration und Orientierungspunkte</h2>
+                    <p>Den Lösungsansatz für die Aufgabe bildeten die vorrausgegangene Laboraufgaben, an deren Struktur
+                        wir die Anwendung orientiert haben. Weiterer Orientierungspunkt waren Vorlesngen und
+                        Vorlesungsfolien, anhand derer sich einige Probleme lösen ließen.</p>
+                    <p>HTML und CSS Grundgerüst stammen aus der Hausarbeit für Frontend Design und wurden für die neue
+                        Aufgabe modifiziert.</p>
+                </section>
+
+                <section>
+                    <h2>Aufgabenteilung</h2>
+                    <p>Das Grundgerüst der Anwendung wurde gemeinsam erstellt. Server und App wurden zusammen
+                        bearbeitet, sowie das HTML Gerüst angepasst.
+                        Die einzelnen Bereiche (Nutzer, Exponate
+                        und Besucher) haben wir untereinander aufgeteilt. Dokumentation und Projekttagebuch wurden
+                        ebenfalls gemeinsam verfasst.</p>
+                    <h3>Hannah Hüttmann</h3>
+                    <ul>
+                        <li>-Exponate:</li>
+                        <ul>
+                            <li>-Erstellung</li>
+                            <li>-Bearbeitung</li>
+                            <li>-Entfernen</li>
+                            <li>-Detailansicht</li>
+                        </ul>
+                        <li>-Nutzer:</li>
+                        <ul>
+                            <li>-Login</li>
+                            <li>-Registrierung</li>
+                        </ul>
+                    </ul>
+                    <h3>Mark Arnemann</h3>
+                    <ul>
+                        <li>-Besucher:
+                            <ul>
+                                <li>-Erstellung</li>
+                                <li>-Übersicht</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p></p>
+                    <section>
+                        <h2>Erklärung nötiger Bildrechte</h2>
+                        <p>Alles Beispielbilder sind von Unsplash.com. Diese können frei verwendet werden.</p>
+                        <p class="quote">
+                            "License Unsplash photos are made to be used freely. Our license reflects that.
+                            All photos can be downloaded and used for free
+                            Commercial and non-commercial purposes
+                            No permission needed (though attribution is appreciated!)"
+                        </p>
+
+                    </section>
+
+            </div>
+        </section>
+
+
+        {% endblock %}
+    </main>
+</body>
+
+</html>

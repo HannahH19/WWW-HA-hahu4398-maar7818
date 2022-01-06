@@ -1,61 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/styles.css"> 
-        <title>Document</title>
-        <style>
-            @font-face {
-                font-family: CreteRound;
-                src: local("CreteRound Regular"),
-                    url(fonts/CreteRound-Regular.ttf);
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: CreteRound;
+            src: local("CreteRound Regular"),
+                url(fonts/CreteRound-Regular.ttf);
+        }
 
-            @font-face {
-                font-family: Roboto;
-                src: local("Roboto Regular"),
-                    url(fonts/Roboto-Regular.ttf);
-            }
-        </style>
-    </head>
+        @font-face {
+            font-family: Roboto;
+            src: local("Roboto Regular"),
+                url(fonts/Roboto-Regular.ttf);
+        }
+    </style>
+</head>
 
-    <body>
-        <main>
-            {% extends 'layout.html' %}
-            {% block content %}
-            <section>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2301.3320497685154!2d9.44720161640063!3d54.77412987450732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b34283719502c3%3A0x5d5b9859da2e6004!2sHochschule%20Flensburg!5e0!3m2!1sde!2sde!4v1624545644483!5m2!1sde!2sde/"
-                    width="100%"
-                    height="450"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy">
-                </iframe>
-            </section>
+<body>
+    <main>
+        {% extends 'layout.html' %}
+        {% block content %}
+        <section>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2301.3320497685154!2d9.44720161640063!3d54.77412987450732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b34283719502c3%3A0x5d5b9859da2e6004!2sHochschule%20Flensburg!5e0!3m2!1sde!2sde!4v1624545644483!5m2!1sde!2sde/"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </section>
 
         <section class="l-containerLight">
-            <form action="#" method="post" accept-charset="utf-8"
-                enctype="multipart/form-data">
+            <form action="#" method="post">
                 <fieldset>
-                <legend>Kontakt aufnehmen</legend>
-                <div id="form">
-                    <p>Der Rundgang wird jedes Jahr von der Hochschule Flensburg veranstaltet. Bei Interesse können Sie ihre Daten hinterlegen und sich direkt für den Rundgang anmelden.</p>
-                    <label>Name</label>
-                    <input type ="text" id="form_vorname" size="80" name="vorname" value="{{ form['vorname'] }}"> <br />
-                    <label>Lastname</label>
-                    <input type="text" id="form_lastname" size="80" name="lastname" value="{{ form['lastname'] }}"> <br />
-                    <label>Email-Adresse</label>
-                    <input type="text" id="form_mail" size="80" name="mail" value="{{ form['mail'] }}"> <br />
-                    <input type="submit" value="Anmelden">
-                </div>
+                    <legend>Kontakt aufnehmen</legend>
+                    <div id="form">
+                        <p>Der Rundgang wird jedes Jahr von der Hochschule Flensburg veranstaltet. Bei Interesse können
+                            Sie ihre Daten hinterlegen und sich direkt für den Rundgang anmelden.</p>
+                        <label>Name</label>
+                        <input type="text" id="form_vorname" size="80" name="vorname" value="{{ form['vorname'] }}">
+                        <br />
+                        <label>Lastname</label>
+                        <input type="text" id="form_lastname" size="80" name="lastname" value="{{ form['lastname'] }}">
+                        <br />
+                        <label>Email-Adresse</label>
+                        <input type="text" id="form_mail" size="80" name="mail" value="{{ form['mail'] }}"> <br />
+                        <input type="submit" value="Anmelden">
+                    </div>
                 </fieldset>
             </form>
         </section>
         {% endblock %}
-        </main>
-    </body>
+    </main>
+</body>
+
 </html>

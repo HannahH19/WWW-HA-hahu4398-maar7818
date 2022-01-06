@@ -26,16 +26,19 @@
     <main>
         {% extends 'layout.html' %}
         {% block content %}
-        
+
         <section class="l-containerLight">
             <form action="#" method="post">
                 <fieldset>
                     <legend>Registrieren</legend>
                     <div id="form">
+                        <p>Registrieren Sie sich als Nutzer, um Exponate bearbeiten und die Besucher verwalten zu
+                            koennen.</p>
                         <label>Nutzername:</label><input type="text" id="form_name" name="name"
                             value="{{ form['name'] }}"><br />
                         <label>Passwort:</label><input type="text" id="form_password" name="password"
                             value="{{ form['password'] }}"><br />
+
                     </div>
                     <button type="submit" value="submit">Registrieren</button>
                 </fieldset>

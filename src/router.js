@@ -10,11 +10,32 @@ const router = new Router();
 export default router;
 
 router
-  .get("/", ctx => {
+  .get("/", (ctx) => {
     return (ctx.body = controller.index(ctx));
   })
 
-  .get("/exponat/add",  (ctx) => {
+  .get("/kontakt/view", (ctx) => {
+    return (ctx.body = viewerController.showVisitorPage(ctx));
+  })
+
+  .get("/kontakt", (ctx) => {
+    return (ctx.body = controller.showKontaktPage(ctx));
+  })
+
+  .post("/kontakt", koaBody(), (ctx) => {
+    router.use(koaBody());
+    ctx.body = ctx.request.body;
+
+    if (ctx.body.vorname != null && ctx.body.lastname != null) {
+      return (ctx.body = viewerController.add(ctx));
+    } else {
+      ctx.status = 400;
+      ctx.state.flash = "Bitte geben sie Vor- und Nachnamen ein";
+      return (ctx.body = viewerController.addViewerRender(ctx));
+    }
+  })
+
+  .get("/exponat/add", (ctx) => {
     return (ctx.body = formController.addRender(ctx));
   })
 
@@ -25,7 +46,7 @@ router
       return (ctx.body = controller.add(ctx));
     } else {
       ctx.status = 400;
-      ctx.state.flash = "Titel & Beschreibung darf nicht leer bleiben"
+      ctx.state.flash = "Titel & Beschreibung darf nicht leer bleiben";
       return (ctx.body = formController.addRender(ctx));
     }
   })
@@ -38,15 +59,15 @@ router
     return (ctx.body = formController.editRender(ctx));
   })
 
-  .post("/exponat/:ID/edit",koaBody(), (ctx) => {
+  .post("/exponat/:ID/edit", koaBody(), (ctx) => {
     router.use(koaBody());
     ctx.body = ctx.request.body;
-    console.log(ctx.body)
-    if (ctx.body.title != "" ) {
+    console.log(ctx.body);
+    if (ctx.body.title != "") {
       return formController.edit(ctx);
-    }else{
+    } else {
       ctx.status = 400;
-      ctx.state.flash = "Titel darf nicht leer bleiben"
+      ctx.state.flash = "Titel darf nicht leer bleiben";
       ctx.redirect("/");
     }
   })
@@ -66,11 +87,11 @@ router
   .post("/login", koaBody(), (ctx) => {
     router.use(koaBody());
     ctx.body = ctx.request.body;
-    if(ctx.body.name != "" && ctx.body.password != ""){
-      return  loginController.login(ctx);
-    }else{
+    if (ctx.body.name != "" && ctx.body.password != "") {
+      return loginController.login(ctx);
+    } else {
       ctx.status = 400;
-      ctx.state.flash = "Bitte geben Sie etwas ein"
+      ctx.state.flash = "Bitte geben Sie etwas ein";
       return (ctx.body = loginController.show(ctx));
     }
   })
@@ -82,37 +103,26 @@ router
   .post("/register", koaBody(), (ctx) => {
     router.use(koaBody());
     ctx.body = ctx.request.body;
-    if(ctx.body.name != "" && ctx.body.password != ""){
+    if (ctx.body.name != "" && ctx.body.password != "") {
       return (ctx.body = userController.add(ctx));
-    }else{
+    } else {
       ctx.status = 400;
-      ctx.state.flash = "Bitte geben Sie etwas ein"
+      ctx.state.flash = "Bitte geben Sie etwas ein";
       return (ctx.body = registerController.addUserRender(ctx));
     }
   })
 
-  .get('/logout', (ctx) => {
+  .get("/logout", (ctx) => {
     return (ctx.body = loginController.logout(ctx));
+  })
+
+  .get("/dokumentation", (ctx) => {
+    return (ctx.body = controller.showDokumentation(ctx));
+  })
+  .get("/timeline", (ctx) => {
+    return (ctx.body = controller.showTimeline(ctx));
   })
 
   .get("/hochschule", (ctx) => {
     return (ctx.body = controller.showHochschulPage(ctx));
-  })
-
-  .get("/kontakt", (ctx) => {
-    return (ctx.body = controller.showKontaktPage(ctx));
-  })
-
-  .post("/kontakt", koaBody(), (ctx) => {
-    router.use(koaBody());
-    ctx.body = ctx.request.body;
-    if(ctx.body.name != "" && ctx.body.lastname != ""){ // && ctx.body.mail != ""
-      return (ctx.body = viewerController.add(ctx));
-    }else{
-      ctx.status = 400;
-      ctx.state.flash = "Bitte geben sie Vor- und Nachnamen ein"
-      return (ctx.body = viewerController.addViewerRender(ctx));
-    }
-  })
-
- 
+  });
